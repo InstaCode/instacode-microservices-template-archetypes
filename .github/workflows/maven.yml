@@ -22,11 +22,11 @@ jobs:
       with:
            java-version: '11'
            distribution: 'zulu'
-           server-id: github
-           server-username: jason-edstrom
-           server-password: ${env.GITHUB_TOKEN}
+#            server-id: github
+#            server-username: jason-edstrom
+#            server-password: ${env.GITHUB_TOKEN}
     - name: Build with Maven
       run: mvn -B package --file ${{matrix.server-type}}-server/pom.xml
     - name: Maven Release and Publish
-      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes
+      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml
 
