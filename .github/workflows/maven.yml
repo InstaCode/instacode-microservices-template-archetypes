@@ -23,11 +23,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file ${{matrix.server-type}}-server/pom.xml
     - name: Maven Release and Publish
-      uses: mg-smartrent/github-actions-maven-release@v1.5
-      with:
-        release-branch-name: "main"
-        git-release-bot-name: "release-bot"
-        git-release-bot-email: "release-bot@example.com"
-        access-token: ${{ secrets.GITHUB_TOKEN }}
-        maven-release-args: "--file ${{matrix.server-type}}-server/pom.xml"
-#      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes
+      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes
