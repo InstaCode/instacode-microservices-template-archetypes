@@ -9,6 +9,14 @@
 
   <name>InstaCode Gateway Server Archetype</name>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub InstaCode Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes</url>
+    </repository>
+  </distributionManagement>
+
   <build>
     <extensions>
       <extension>
