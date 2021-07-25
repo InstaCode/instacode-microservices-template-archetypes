@@ -8,7 +8,7 @@
     <name>InstaCode Microservices Config Server</name>
 
     <parent>
-        <groupId>io.instacode.spring</groupId>
+        <groupId>io.instacode.microservices.spring</groupId>
         <version>1.0-SNAPSHOT</version>
         <artifactId>instacode-microservices-parent</artifactId>
     </parent>
