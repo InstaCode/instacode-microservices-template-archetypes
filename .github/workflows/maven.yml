@@ -29,6 +29,6 @@ jobs:
         release-branch-name: "main"
         git-release-bot-name: "release-bot"
         git-release-bot-email: "release-bot@example.com"
-        access-token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        access-token: ${{ secrets.PACKAGES }}
         maven-project-folder: "${{matrix.server-type}}-server/"
 #      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes
