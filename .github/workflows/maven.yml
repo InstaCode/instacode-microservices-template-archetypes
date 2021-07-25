@@ -30,9 +30,5 @@ jobs:
         git-release-bot-name: "release-bot"
         git-release-bot-email: "release-bot@example.com"
         access-token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-        maven-release-args: "-Dskip.unit.tests=true -Dskip.integration.tests=true --file ${{matrix.server-type}}-server/pom.xml"
-        # Publish artifacts to GitHub Packages
-        maven-publish-args: "-Dskip.unit.tests=true -Dskip.integration.tests=true --file ${{matrix.server-type}}-server/pom.xml"
-        maven-release-publish: "true"
-        maven-snapshot-publish: "true"
+        maven-project-folder: "${{matrix.server-type}}-server/"
 #      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes
