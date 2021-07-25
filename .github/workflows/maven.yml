@@ -9,7 +9,8 @@ on:
 
 jobs:
   build:
-
+    env:
+      JAVA_HOME: /opt/hostedtoolcache/Java_Adopt_jdk/11.0.11-9/x64
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,8 +26,6 @@ jobs:
       run: mvn -B package --file ${{matrix.server-type}}-server/pom.xml
     - name: Deploy Archetype to GitHub
       uses: qcastel/github-actions-maven-release@master
-      env:
-        JAVA_HOME: /opt/hostedtoolcache/Java_Adopt_jdk/11.0.11-9/x64
       with:
         release-branch-name: "main"
         git-release-bot-name: "release-bot"
