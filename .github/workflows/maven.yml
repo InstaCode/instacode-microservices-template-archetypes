@@ -21,8 +21,8 @@ jobs:
            java-version: '11'
            distribution: 'zulu'
            server-id: github
-           server-username: ${{env.GITHUB_ACTOR}}
-           server-password: ${{env.GITHUB_TOKEN}}
+           server-username: jason-edstrom
+           server-password: ${{secrets.PACKAGES}}
     - name: Build with Maven
       run: mvn -B package --file ${{matrix.server-type}}-server/pom.xml
     - name: Maven Release and Publish
