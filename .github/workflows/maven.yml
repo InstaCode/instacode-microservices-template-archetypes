@@ -11,8 +11,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      JAVA_HOME: /opt/hostedtoolcache/Java_Adopt_jdk/11.0.11-9/x64
     strategy:
       matrix:
         server-type: [config, tracing, discovery, gateway]
@@ -27,10 +25,12 @@ jobs:
       run: mvn -B package --file ${{matrix.server-type}}-server/pom.xml
     - name: Deploy Archetype to GitHub
       uses: qcastel/github-actions-maven-release@master
+      env:
+        JAVA_HOME: /opt/hostedtoolcache/Java_Adopt_jdk/11.0.11-9/x64
       with:
         release-branch-name: "main"
         git-release-bot-name: "release-bot"
         git-release-bot-email: "release-bot@example.com"
-        access-token: ${{ secrets.PACKAGES }}
+        access-token: ${{ secrets.GITHUB_TOKEN }}
         maven-project-folder: "${{matrix.server-type}}-server/"
 #      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/InstaCode/instacode-microservices-template-archetypes
