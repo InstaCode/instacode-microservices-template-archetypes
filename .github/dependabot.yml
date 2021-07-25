@@ -6,6 +6,26 @@
 version: 2
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/config-server" # Location of package manifests
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "maven" # See documentation for possible values
+    directory: "/tracing-server" # Location of package manifests
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "maven" # See documentation for possible values
+    directory: "/discovery-server" # Location of package manifests
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "maven" # See documentation for possible values
+    directory: "/gateway-server" # Location of package manifests
+    schedule:
+      interval: "daily"
+
+  # - package-ecosystem: "maven" # See documentation for possible values
+  #   directory: "/config-server" # Location of package manifests
+  #   schedule:
+  #     interval: "daily"
