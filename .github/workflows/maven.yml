@@ -14,7 +14,7 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     strategy:
       matrix:
-        server-type: [config, tracing, discovery, gateway]
+        server-type: [config-server, tracing-server, discovery-server, gateway-server, service]
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -26,7 +26,7 @@ jobs:
 #            server-username: jason-edstrom
 #            server-password: ${env.GITHUB_TOKEN}
     - name: Build with Maven
-      run: mvn -B package --file ${{matrix.server-type}}-server/pom.xml
+      run: mvn -B package --file ${{matrix.server-type}}/pom.xml
     - name: Maven Release and Publish
-      run: mvn -B -e deploy --file ${{matrix.server-type}}-server/pom.xml
+      run: mvn -B -e deploy --file ${{matrix.server-type}}/pom.xml
 
