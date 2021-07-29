@@ -2,6 +2,13 @@
 <archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="service"
     xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <requiredProperties>
+      <requiredProperty key="service-name">
+        <defaultValue>Foo</defaultValue>
+      </requiredProperty>
+    </requiredProperties>
+
     <fileSets>
     <fileSet encoding="UTF-8">
       <directory></directory>
@@ -12,7 +19,7 @@
     </fileSet>
   </fileSets>
   <modules>
-    <module id="client" dir="client" name="client">
+    <module id="__artifactId__-server" dir="__artifactId__-server" name="__artifactId__-server">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
@@ -28,7 +35,7 @@
         </fileSet>
       </fileSets>
     </module>
-    <module id="server" dir="server" name="server">
+    <module id="__artifactId__-client" dir="__artifactId__-client" name="${artifactId}">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
